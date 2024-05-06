@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ludo Luck</title>
+    <style>
+         #gameBoard {
+            width: 400px;
+            height: 400px;
+            border: 2px solid black;
+            display: flex;
+            flex-wrap: wrap;
+        }
+         .cell {
+            width: 25%;
+            height: 25%;
+            border: 1px solid black;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 20px;
+        }
+        }
+        #chatInput {
+            width: 150px;
+            margin-top: 10px;
+        }
+        #sendBtn {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to Ludo Luck</h1>
+    </header>
+    
+    <main>
+        <!-- Game board will be displayed here -->
+        <div id="gameBoard">
+            <!-- Game board will be generated here dynamically -->
+        </div>
+        
+        <!-- Sidebar for game options -->
+        <aside>
+            <h2>Game Options</h2>
+            <!-- Buttons for game options like multiplayer, play with friends, etc. -->
+            <button id="multiplayerBtn">Multiplayer</button>
+            <button id="playWithFriendsBtn">Play with Friends</button>
+            <!-- Other game options buttons -->
+
+            <!-- Form to add friends -->
+            <form id="addFriendForm">
+                <h3>Add Friend</h3>
+                <input type="text" id="friendUsername" placeholder="Enter Friend's Username">
+                <button type="submit">Add</button>
+            </form>
+        </aside>
+    </main>
+
+    <!-- Chat window -->
+    <div id="chatWindow">
+        <!-- In-game chat messages will be displayed here -->
+    </div>
+    <input type="text" id="chatInput" placeholder="Type your message">
+    <button id="sendBtn">Send</button>
+
+    <footer>
+        <p>&copy; 2024 Ludo Luck. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // JavaScript code
+        // Function to roll a dice
+        function rollDice() {
+            return Math.floor(Math.random() * 6) + 1;
+        }
+
+        // Function to move player
+        function movePlayer(player, steps) {
+            // Logic to move the player by 'steps' on the game board
+            // You can implement the logic based on your game's rules
+        }
+
+        // Function to handle sending messages in the chat
+        function sendMessage() {
+            const messageInput = document.getElementById("chatInput");
+            const message = messageInput.value.trim();
+            if (message !== "") {
+                // Send the message to the server or handle it locally
+                // For simplicity, let's just display the message in the chat window
+                const chatWindow = document.getElementById("chatWindow");
+                const messageElement = document.createElement("p");
+                messageElement.textContent = message;
+                chatWindow.appendChild(messageElement);
+                // Clear the input field after sending the message
+                messageInput.value = "";
+            }
+        }
+
+        // Event listeners
+        document.getElementById("sendBtn").addEventListener("click", sendMessage);
+        document.getElementById("chatInput").addEventListener("keypress", function(e) {
+            if (e.key === "Enter") {
+                sendMessage();
+            }
+        });
+    </script>
+</body>
+</html>
